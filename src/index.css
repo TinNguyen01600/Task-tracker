@@ -61,9 +61,15 @@
     height: 35px;
     margin: 20px 0 20px 0;
 }
+#submit-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+}
 /*******************************************************/
 .form-text input, .form-date input {
     height: 35px;
+    padding: 5px;
 }
 
 .form-reminder {

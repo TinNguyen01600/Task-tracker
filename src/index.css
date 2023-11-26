@@ -40,7 +40,38 @@
     justify-content: space-between;
     align-items: center;
 }
-
 .taskItem.reminder {
     border-left: 8px solid deepskyblue;
 }
+/*******************************************************/
+.add-form, .form-text, .form-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 700;
+}
+.add-form *{
+    margin-top: 5px;
+}
+/*******************************************************/
+#submit-btn {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    height: 35px;
+    margin: 20px 0 20px 0;
+}
+/*******************************************************/
+.form-text input, .form-date input {
+    height: 35px;
+}
+
+.form-reminder {
+    display: flex;
+    align-items: center;
+}
+.form-reminder input {
+    flex: 3;
+    height: 20px;
+}
+/*******************************************************/

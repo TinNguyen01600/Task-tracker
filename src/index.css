@@ -32,11 +32,15 @@
 }
 
 .taskItem {
-    background-color: bisque;
+    background-color: aliceblue;
     margin: 10px;
     padding: 10px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.taskItem.reminder {
+    border-left: 8px solid deepskyblue;
 }

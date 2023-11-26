@@ -2,19 +2,15 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 
 const Header = (props) => {
-	const { title } = props;
-
-	const handleAddButton = () => {
-		console.log("Click");
-	};
+	const { title, onAdd, isFormOpen } = props;
 
 	return (
 		<header className="header">
 			<h1>{title}</h1>
 			<Button 
-                color={"black"} 
-                text={"Add"} 
-                handleAddButton={handleAddButton} 
+                color={isFormOpen ? "red" : "green"} 
+                text={isFormOpen ? "Close" : "Add"} 
+                handleAddButton={onAdd} 
             />
 		</header>
 	);

@@ -4,6 +4,7 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 
 function App() {
+    const [isFormOpen, setIsFormOpen] = useState(false)
     const [tasks, setTasks] = useState([
         { id: 1, text: 'Doctors Appointment', day: 'Feb 5th 2:30pm', reminder: true },
         { id: 2, text: 'Meeting at School', day: 'Feb 6th 1:30pm', reminder: false },
@@ -37,8 +38,11 @@ function App() {
 
     return (
         <div className="container">
-            <Header />
-            <AddTask addTask={addTask}/>
+            <Header 
+                onAdd={() => setIsFormOpen(!isFormOpen)}
+                isFormOpen={isFormOpen}    
+            />
+            {isFormOpen && <AddTask addTask={addTask}/>}
             {tasks.length > 0
                 ? <Tasks
                     tasks={tasks}

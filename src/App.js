@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import Footer from "./components/Footer";
+import About from "./components/About";
 
 function App() {
     const [isFormOpen, setIsFormOpen] = useState(false)
@@ -38,7 +42,7 @@ function App() {
         return data
     }
 
-    const toggleReminder = async(id) => {
+    const toggleReminder = async (id) => {
         // setTasks(tasks.map(task => 
         //     task.id === id 
         //         ? { ...task, reminder: !task.reminder } 
@@ -46,7 +50,7 @@ function App() {
         // ))
 
         const toggleTask = await fetchTask(id)
-        const updatedTask = {...toggleTask, reminder: !toggleTask.reminder}
+        const updatedTask = { ...toggleTask, reminder: !toggleTask.reminder }
         const res = await fetch(`http://localhost:5000/tasks/${id}`, {
             method: "PUT",
             body: JSON.stringify(updatedTask),
@@ -55,10 +59,10 @@ function App() {
             }
         })
         const data = await res.json()
-        
+
         setTasks(tasks.map(task => {
             if (task.id === id) return { ...task, reminder: data.reminder }
-            else    return task
+            else return task
         }))
     }
 
@@ -76,20 +80,31 @@ function App() {
     }
 
     return (
-        <div className="container">
-            <Header 
-                onAdd={() => setIsFormOpen(!isFormOpen)}
-                isFormOpen={isFormOpen}    
-            />
-            {isFormOpen && <AddTask addTask={addTask}/>}
-            {tasks.length > 0
-                ? <Tasks
-                    tasks={tasks}
-                    deleteTask={deleteTask}
-                    toggleReminder={toggleReminder}
+        <Router>
+            <div className="container">
+                <Header
+                    onAdd={() => setIsFormOpen(!isFormOpen)}
+                    isFormOpen={isFormOpen}
                 />
-                : 'No Tasks To Show'}
-        </div>
+                <Switch>
+                    <Route exact path="/" render={(props) => (
+                        <>
+                            {isFormOpen && <AddTask addTask={addTask} />}
+                            {tasks.length > 0
+                                ? <Tasks
+                                    tasks={tasks}
+                                    deleteTask={deleteTask}
+                                    toggleReminder={toggleReminder}
+                                />
+                                : 'No Tasks To Show'}
+                            <Footer />
+                        </>
+                    )}
+                    />
+                    <Route path="/about"><About /></Route>
+                </Switch>
+            </div>
+        </Router>
     );
 }
 

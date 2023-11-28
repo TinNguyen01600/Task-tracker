@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# TASK TRACKER WEB APPLICATION
+
+This project was inspired and instructed by [Traversy Media](https://www.youtube.com/@TraversyMedia), for learning purpose. \
+Credit video [React JS Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8&t=5752s)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

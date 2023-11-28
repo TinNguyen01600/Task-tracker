@@ -23,7 +23,11 @@ function App() {
     }
 
     // Delete Task
-    const deleteTask = (id) => {
+    // When delete task on UI, the task is also deleted from db.json
+    const deleteTask = async (id) => {
+        await fetch(`http://localhost:5000/tasks/${id}`, {
+            method: "DELETE"
+        })
         setTasks(tasks.filter(task => task.id !== id))
     }
 
@@ -41,9 +45,15 @@ function App() {
     }
 
     // Add Task
-    const addTask = (task) => {
-        const id = Math.floor(Math.random() * 10000) + 1
-        const newTask = {id, ...task}
+    const addTask = async (task) => {
+        const data = await fetch('http://localhost:5000/tasks', {
+            method: "POST",
+            body: JSON.stringify(task),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const newTask = await data.json()
         setTasks([...tasks, newTask])
     }
 

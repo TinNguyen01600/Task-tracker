@@ -18,19 +18,21 @@ Credit video [React JS Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8
 
 ## Project Structure
 
-src/
-┣ components/
-┃ ┣ About.js
-┃ ┣ AddTask.js
-┃ ┣ Button.js
-┃ ┣ Footer.js
-┃ ┣ Header.js
-┃ ┣ Task.js
-┃ ┗ Tasks.js
-┣ App.js
-┣ index.css
-┣ index.js
-┗ reportWebVitals.js
+* [src/](.\src)
+    * [components/](.\src\components)
+        * [About.js](.\src\components\About.js)
+        * [AddTask.js](.\src\components\AddTask.js)
+        * [Button.js](.\src\components\Button.js)
+        * [Footer.js](.\src\components\Footer.js)
+        * [Header.js](.\src\components\Header.js)
+        * [Task.js](.\src\components\Task.js)
+        * [Tasks.js](.\src\components\Tasks.js)
+    * [App.js](.\src\App.js)
+    * [index.css](.\src\index.css)
+    * [index.js](.\src\index.js)
+    * [reportWebVitals.js](.\src\reportWebVitals.js)
+* [db.json](.\db.json)
+
 
 ## Instruction
 1. Open your terminal and clone the repository with the following command: 
@@ -57,7 +59,7 @@ npm i json-server
 ```
 npm run server
 ```
-7. New file db.json is created. You can add/edit data in this file. These data can be accessed in http://localhost:5000/tasks
+7. New file [db.json](.\db.json) is created. You can add/edit data in this file. These data can be accessed in http://localhost:5000/tasks
 ```
 (
 "tasks": [ 
